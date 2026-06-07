@@ -124,7 +124,7 @@ export default function VehicleAllocationForm() {
 
       <button
         type="submit"
-        disabled={isVehicleAllocated}
+        disabled={!!isVehicleAllocated}
         className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-4 py-3 rounded-lg font-medium transition"
       >
         Allocate Vehicle

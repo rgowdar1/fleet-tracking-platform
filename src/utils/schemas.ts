@@ -5,7 +5,7 @@ export const hubSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1, "Hub name is required"),
   type: z.enum(["hub", "terminal"], {
-    errorMap: () => ({ message: "Type must be hub or terminal" }),
+    message: "Type must be hub or terminal",
   }),
   address: z.string().min(5, "Address must be at least 5 characters"),
   coordinates: z.object({
@@ -24,14 +24,12 @@ export type HubFormData = z.infer<typeof hubSchema>;
 export const driverSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(2, "Driver name must be at least 2 characters"),
-  license: z
-    .string()
-    .min(5, "License number must be at least 5 characters"),
+  license: z.string().min(5, "License number must be at least 5 characters"),
   phone: z
     .string()
     .regex(
       /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/,
-      "Invalid phone number format"
+      "Invalid phone number format",
     ),
 });
 
@@ -45,7 +43,7 @@ export const vehicleSchema = z.object({
     .min(5, "Registration number must be at least 5 characters"),
   capacity: z.number().min(1000, "Capacity must be at least 1000 liters"),
   type: z.enum(["Tanker", "Truck"], {
-    errorMap: () => ({ message: "Type must be Tanker or Truck" }),
+    message: "Type must be Tanker or Truck",
   }),
 });
 
@@ -56,7 +54,7 @@ export const orderSchema = z.object({
   id: z.string().optional(),
   destinationId: z.string().min(1, "Destination is required"),
   product: z.enum(["diesel", "petrol"], {
-    errorMap: () => ({ message: "Product must be diesel or petrol" }),
+    message: "Product must be diesel or petrol",
   }),
   quantity: z.number().min(100, "Quantity must be at least 100 liters"),
   deliveryDate: z.string().refine((date) => {

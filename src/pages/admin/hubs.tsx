@@ -42,7 +42,7 @@ export default function Hubs() {
       )}
 
       <div className="mb-4">
-        <SearchInput value={search} onChange={setSearch} placeholder="Search hubs by name or address..." />
+        <SearchInput value={search} onChange={setSearch} />
       </div>
 
       <div className="bg-white rounded-xl shadow overflow-hidden">
