@@ -66,7 +66,7 @@ export default function AdminSidebar({ isOpen, onClose }: Props) {
 
       {/* Mobile overlay sidebar */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transform transition-transform duration-200 ${
+        className={`fixed inset-0 z-[1000] md:hidden transform transition-transform duration-200 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         aria-hidden={!isOpen}

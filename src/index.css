@@ -77,3 +77,14 @@ select::-ms-expand {
 	cursor: pointer;
 }
 
+/* Leaflet map controls z-index fix - ensure they stay below sidebars (z-1000) */
+.leaflet-control-container,
+.leaflet-top,
+.leaflet-bottom,
+.leaflet-control-zoom,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution,
+.leaflet-control {
+    z-index: 400 !important;
+}
