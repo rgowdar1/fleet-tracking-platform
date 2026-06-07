@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* Global button improvements: pointer, hover, focus and reduced-motion support */
+button {
+	cursor: pointer;
+	transition: transform .08s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+button:disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	button:hover:not(:disabled) {
+		transform: translateY(-1px);
+	}
+}
+
+/* Accessible focus ring for keyboard users */
+button:focus {
+	outline: 2px solid rgba(59,130,246,0.4); /* subtle blue */
+	outline-offset: 2px;
+	box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+}
+
+/* Make Tailwind background utility buttons darken slightly on hover */
+.bg-green-600:hover,
+.bg-blue-600:hover,
+.bg-red-600:hover,
+.bg-yellow-500:hover,
+.bg-indigo-600:hover,
+.bg-gray-800:hover,
+.bg-gray-600:hover,
+.bg-sky-500:hover {
+	filter: brightness(0.92);
+}
+
+/* Ensure text-only buttons get an underline-on-hover cue */
+button.text-button:hover:not(:disabled) {
+	text-decoration: underline;
+}
+
+/* Dropdowns and date pickers improvements */
+select,
+input[type="date"],
+input[type="time"] {
+	cursor: pointer;
+	transition: box-shadow .12s ease, transform .08s ease, filter .12s ease;
+}
+
+select:hover:not(:disabled),
+input[type="date"]:hover:not(:disabled),
+input[type="time"]:hover:not(:disabled) {
+	filter: brightness(0.98);
+	transform: translateY(-0.5px);
+}
+
+select:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+	outline: 2px solid rgba(59,130,246,0.35);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 4px rgba(59,130,246,0.06);
+}
+
+/* Make calendar icon area indicate hover (WebKit) */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+	filter: saturate(0.95);
+}
+
+/* For native select arrow on WebKit/Chrome */
+select::-ms-expand {
+	cursor: pointer;
+}
+
